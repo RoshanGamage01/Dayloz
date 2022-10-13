@@ -28,12 +28,13 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
+    final _currentHeight = MediaQuery.of(context).size.height;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const SizedBox(
-          height: 70,
+        SizedBox(
+          height: _currentHeight < 650 ? 30 : 70,
         ),
         Container(
           child: const Text(
@@ -116,8 +117,8 @@ class _SignupState extends State<Signup> {
             child: const Text('Create', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),),
           ),
         ),
-        const SizedBox(
-          height: 70,
+        SizedBox(
+          height: _currentHeight < 700 ? 30 : 70,
         ),
         const Text('or with', style: TextStyle(color: Color(0xffC6CEDD)), textAlign: TextAlign.center,),
         const SizedBox(
@@ -133,9 +134,9 @@ class _SignupState extends State<Signup> {
             Image(image: AssetImage('images/facebook.png'), width: 42,)
           ],
         ),
-        const SizedBox(
-            height: 40,
-          ),
+        SizedBox(
+          height: _currentHeight < 670 ? 20 : 40,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

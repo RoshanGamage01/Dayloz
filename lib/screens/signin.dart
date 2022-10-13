@@ -28,6 +28,8 @@ class Signin extends StatefulWidget {
 class _SigninState extends State<Signin> {
   @override
   Widget build(BuildContext context) {
+    final _currentHeight = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,8 +105,8 @@ class _SigninState extends State<Signin> {
             child: const Text('Login', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),),
           ),
         ),
-        const SizedBox(
-          height: 70,
+        SizedBox(
+          height: _currentHeight < 650 ? 30 : 70,
         ),
         const Text('or with', style: TextStyle(color: Color(0xffC6CEDD)), textAlign: TextAlign.center,),
         const SizedBox(

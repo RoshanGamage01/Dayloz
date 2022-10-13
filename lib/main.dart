@@ -12,11 +12,7 @@ class Dayloz extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: LoginSignup(),
-          ),
-      ),
+      home: SignupLogin(),
     );
   }
 }
