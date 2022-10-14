@@ -1,7 +1,7 @@
+import 'package:dayloz/screens/home_page.dart';
 import 'package:dayloz/screens/signin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -24,12 +24,27 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  final _userNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   Future signUp() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailController.text.trim(), password: _passwordController.text.trim());
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(), 
+      password: _passwordController.text.trim()
+    );
+
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const HomePage())
+    );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,7 +56,7 @@ class _SignupState extends State<Signup> {
           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAl ignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               height: _currentHeight < 650 ? 20 : 70,
@@ -62,28 +77,10 @@ class _SignupState extends State<Signup> {
             Column(
               children: [
                 TextFormField(
-                  controller: _userNameController,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.badge_outlined),
-                    label: Text('Username', style: TextStyle(fontWeight: FontWeight.w500, color: Color.fromARGB(255, 198, 206, 221),),),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Color.fromARGB(255, 206, 207, 207)),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xff5B67CA)),
-                    ),
-                    
-                  ),
-                  
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
                   controller: _emailController,
                   decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.mail_outline),
-                    label: Text('Email ID', style: TextStyle(fontWeight: FontWeight.w500, color: Color.fromARGB(255, 198, 206, 221),),),
+                    prefixIcon: Icon(Icons.mail_outlined),
+                    label: Text('EmailID', style: TextStyle(fontWeight: FontWeight.w500, color: Color.fromARGB(255, 198, 206, 221),),),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Color.fromARGB(255, 206, 207, 207)),
                     ),
@@ -100,8 +97,26 @@ class _SignupState extends State<Signup> {
                 TextFormField(
                   controller: _passwordController,
                   decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.lock_outlined),
+                    prefixIcon: Icon(Icons.lock_outline),
                     label: Text('Password', style: TextStyle(fontWeight: FontWeight.w500, color: Color.fromARGB(255, 198, 206, 221),),),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color.fromARGB(255, 206, 207, 207)),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xff5B67CA)),
+                    ),
+                    
+                  ),
+                  
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: _confirmPasswordController,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.lock_outlined),
+                    label: Text('Confirm Password', style: TextStyle(fontWeight: FontWeight.w500, color: Color.fromARGB(255, 198, 206, 221),),),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Color.fromARGB(255, 206, 207, 207)),
                     ),
@@ -119,7 +134,9 @@ class _SignupState extends State<Signup> {
             ),
             GestureDetector(
               onTap: () {
-                print(_userNameController.text);
+                // print(_emailController.text);
+                // print(_passwordController.text);
+                signUp();
               },
               child: Container(
                 width: 304,

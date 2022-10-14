@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "437419328679",
+    "project_id": "dayloz-ac717",
+    "storage_bucket": "dayloz-ac717.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437419328679:android:a58d6c53f23c26ea7a8782",
+        "android_client_info": {
+          "package_name": "com.roshangamage.dayloz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437419328679-hnfat3foec84temcum7t4jg5gtorr2bp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZUU-QTf93p3q9z4gBaYuh4L0Q9_9UXw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437419328679-hnfat3foec84temcum7t4jg5gtorr2bp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "437419328679-lh18v63pnb0j7tnkrp9lo4qa72reolum.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dayloz"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

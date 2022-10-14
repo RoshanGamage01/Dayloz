@@ -2,7 +2,7 @@ import 'package:dayloz/screens/signin.dart';
 import 'package:dayloz/screens/signup.dart';
 import 'package:flutter/material.dart';
 
-class SignupLogin extends StatelessWidget {
+class SignupLogin extends StatelessWidget { 
   const SignupLogin({ Key? key }) : super(key: key);
 
   @override

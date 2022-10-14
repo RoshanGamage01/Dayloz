@@ -32,7 +32,9 @@ class _SigninState extends State<Signin> {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim());
-    
+
+    Navigator.of(context)
+        .pop(MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   @override
