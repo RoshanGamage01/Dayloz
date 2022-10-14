@@ -37,7 +37,7 @@ class _LoginSignupState extends State<LoginSignup> {
           ),
 
           Container(
-            margin: currentHeight < 700 ? const EdgeInsets.fromLTRB(0, 0, 0, 50) : const EdgeInsets.fromLTRB(0, 0, 0, 100),
+            margin: currentHeight < 710 ? const EdgeInsets.fromLTRB(0, 0, 0, 50) : const EdgeInsets.fromLTRB(0, 0, 0, 100),
             child: Column(
               children: const [
                 Text('Dailoz', style: TextStyle(fontSize: 35, color: Color.fromARGB(255, 91, 103, 202)),),
